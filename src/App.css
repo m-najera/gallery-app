@@ -1,0 +1,60 @@
+.header {
+  display: flex;
+  padding: 0.5rem 1rem;
+  align-items: center;
+}
+
+.header .title {
+  min-width: 100px;
+}
+
+.search-button {
+  height: 56px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.card {
+  width: 100%;
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: all ease-in-out 0.2s;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.card > img {
+  display: block;
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card > .image-description {
+  position: relative;
+  bottom: 45px;
+  height: 45px;
+  width: 100%;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+}
+
+.card > .image-description > .title {
+  padding-left: 0.5rem;
+  font-weight: 600;
+}
+
+.card > .image-description > .description {
+  padding-left: 0.5rem;
+  font-size: 12px;
+  font-weight: 100;
+}
