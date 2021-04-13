@@ -2,23 +2,31 @@ import { Grid } from '@material-ui/core'
 import React, { FC } from 'react'
 
 interface Props {
-    id: string
-    urls: {
-        small: string
+    image: {
+        id: string
+        urls: {
+            small: string
+        }
+        user: {
+            username: string
+        }
+        width: number
+        height: number
     }
+    onClick?: () => void
 }
 
 const ImageCard: FC<Props> = (props) => {
     return (
-        <Grid item xs={4}>
+        <Grid item xs={4} onClick={props.onClick}>
             <div className="card">
-                <img alt="the-img-id" src={props.urls.small} />
+                <img alt="the-img-id" src={props.image.urls.small} />
                 <div className="image-description">
-                    <span className="title">by @author</span><br />
-                    <span className="description">400 x 400</span>
+                    <span className="title">by @{props.image.user.username}</span><br />
+                    <span className="description">{props.image.width} x {props.image.height}</span>
                 </div>
             </div>
-        </Grid>
+        </Grid >
     )
 }
 

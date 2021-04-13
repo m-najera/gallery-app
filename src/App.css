@@ -58,3 +58,15 @@
   font-size: 12px;
   font-weight: 100;
 }
+
+.container-modal {
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  justify-content: center;
+  object-fit: cover;
+}
+
+.modal-image {
+  object-fit: cover;
+}
