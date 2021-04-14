@@ -1,20 +1,24 @@
 import { Button, TextField } from '@material-ui/core';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { createApi } from 'unsplash-js';
 
-const Search = () => {
+interface SearchProps {
+  onChangeResults: (results: any[]) => void
+}
+
+const Search: FC<SearchProps> = (props) => {
 
   const serverApi = createApi({ accessKey: process.env.REACT_APP_UNSPLASH_KEY || "fallback" });
   const [searchText, setSearchText] = useState("");
 
-  const onClickSearch = () => {
+  const getImages = () => {
     serverApi.search.getPhotos({
       query: searchText,
       perPage: 20
     }).then((results) => {
       if (results.response) {
         const imageArray = results.response.results;
-        console.log(imageArray);
+        props.onChangeResults(imageArray);
       }
     })
   }
@@ -29,8 +33,13 @@ const Search = () => {
         style={{ marginRight: 4 }}
         value={searchText}
         onChange={(event) => { setSearchText(event.target.value) }}
+        onKeyDown={(event) => {
+          if (event.key === "Enter") {
+            getImages();
+          }
+        }}
       />
-      <Button variant="contained" onClick={onClickSearch}> Search </Button>
+      <Button variant="contained" onClick={getImages}> Search </Button>
     </div>
   )
 }
