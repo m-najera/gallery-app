@@ -2,28 +2,23 @@ import './App.css';
 import Home from './views/Home';
 import { Box } from '@material-ui/core';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
-import About from './views/About';
+import Welcome from './views/Welcome';
 
 function App() {
   return (
-    <Box className="App">
-      <BrowserRouter>
+    <BrowserRouter>
+      <Box className="App">
         <Switch>
-          <Route path="/about/">
-            <About />
+          <Route path={["/search/:search", "/search/"]} >
+            < Home />
           </Route>
-          <Route exact path="/">
-            <Home />
+          <Route path="">
+            <Welcome />
           </Route>
-          <Route exact path="/404">
-            <div>
-              <h2>404 - Page Not Found</h2>
-            </div>
-          </Route>
-          <Redirect to="/404/" />
+          <Redirect to="/search/"/>
         </Switch>
-      </BrowserRouter>
-    </Box>
+      </Box>
+    </BrowserRouter>
   );
 }
 

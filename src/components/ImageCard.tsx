@@ -1,18 +1,9 @@
 import { Grid } from '@material-ui/core'
 import React, { FC } from 'react'
+import { ImageType } from '../views/Home'
 
 interface Props {
-    image: {
-        id: string
-        urls: {
-            small: string
-        }
-        user: {
-            username: string
-        }
-        width: number
-        height: number
-    }
+    image: ImageType
     onClick?: () => void
 }
 
