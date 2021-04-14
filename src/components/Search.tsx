@@ -33,7 +33,7 @@ const Search: FC<SearchProps> = (props) => {
 
     serverApi.search.getPhotos({
       query: query,
-      perPage: 1
+      perPage: 10
     }).then((results) => {
       if (results.response) {
         const imageArray = results.response.results;
